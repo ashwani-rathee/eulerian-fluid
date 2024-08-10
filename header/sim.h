@@ -1,5 +1,7 @@
-#include<vector>
+#ifndef SIM_H
+#define SIM_H
 
+#include<vector>
 #include "./container.h"
 
 class Sim {
@@ -14,3 +16,5 @@ public:
 	~Sim();
 	void Run();
 };
+
+#endif

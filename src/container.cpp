@@ -1,7 +1,6 @@
 #include "../header/container.h"
+#include "../header/ix.h"
 #include<iostream>
-
-int IX(int x, int y, int N);
 
 Container::Container() : physics(Physics()) {}
 
@@ -122,4 +121,13 @@ void Container::FadeDensity(int size) {
 		float d = this->density[i];
 		density[i] = (d - 0.05f < 0) ? 0 : d - 0.05f; 
 	}	
+}
+
+int Container::GetSize(){
+	return size;
+}
+
+// Function to return a pointer to the density array
+float* Container::GetDensityPointer() {
+	return density;
 }

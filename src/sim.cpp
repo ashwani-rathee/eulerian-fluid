@@ -1,10 +1,11 @@
 #include "../header/sim.h"
+#include "../header/ix.h"
 #include<iostream>
 
 const int Sim::numParticles = 10;
 
 Sim::Sim() : options(Options()), container(Container(0.2f, 0, 0.0000001f)) {
-	this->win.create(sf::VideoMode(SIZE*SCALE, SIZE*SCALE), "Euler fluid simulation - Github: https://github.com/driema/euler-fluid-cpp", sf::Style::Titlebar | sf::Style::Close);
+	this->win.create(sf::VideoMode(SIZE*SCALE, SIZE*SCALE), "Basic Fluid Simulation", sf::Style::Titlebar | sf::Style::Close);
 }
 
 Sim::~Sim() {}
@@ -37,16 +38,21 @@ void Sim::Run() {
 			}
 		}
 
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))			
-			this->container.AddDensity(currentMouse.y/SCALE, currentMouse.x/SCALE, 200);
+		// if (sf::Mouse::isButtonPressed(sf::Mouse::Left))			
+		// 	this->container.AddDensity(currentMouse.y/SCALE, currentMouse.x/SCALE, 200);
+		
+		if(this->container.GetDensityPointer()[IX(1,1,this->container.GetSize())] == 0) this->container.AddDensity((SIZE/2), (SIZE/2), 500);
 
 		currentMouse = sf::Mouse::getPosition(this->win);
 
 		float amountX = currentMouse.x - previousMouse.x;
 		float amountY = currentMouse.y - previousMouse.y;
+		// this->container.AddVelocity(currentMouse.y/SCALE, currentMouse.x/SCALE, amountY / 10, amountX / 10);
+		this->container.AddVelocity(SIZE/2, SIZE/2 + 1, 0, 10);
+		this->container.AddVelocity(SIZE/2 + 1, SIZE/2, 10, 0);
+		this->container.AddVelocity(SIZE/2, SIZE/2 - 1, 0, -10);
+		this->container.AddVelocity(SIZE/2 - 1, SIZE/2, -10, 0);
 
-		this->container.AddVelocity(currentMouse.y/SCALE, currentMouse.x/SCALE, amountY / 10, amountX / 10);
-		
 		previousMouse = currentMouse;
 
 		this->container.Step();

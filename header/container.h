@@ -1,3 +1,6 @@
+#ifndef CONTAINER_H
+#define CONTAINER_H
+
 #include<vector>
 #include<SFML/Graphics.hpp>
 
@@ -37,6 +40,10 @@ public:
 	void Render(sf::RenderWindow& win, Color color);
 	void FadeDensity(int size);
 
+	int GetSize();
+	float* GetDensityPointer();
+
 	sf::Color Hsv(int hue, float sat, float val, float d);
 };
 
+#endif

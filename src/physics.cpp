@@ -1,7 +1,6 @@
 #include<cmath>
 #include "../header/physics.h"
-
-int IX(int x, int y, int N);
+#include "../header/ix.h"
 
 Physics::Physics() {}
 
@@ -130,4 +129,3 @@ void Physics::Advect(int b, float d[], float d0[], float vx[], float vy[], float
         }
 	this->SetBnd(b, d, N);
 }
-

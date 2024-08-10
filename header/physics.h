@@ -1,3 +1,6 @@
+#ifndef PHYSICS_H
+#define PHYSICS_H
+
 class Physics {
 private:
 	void LinSolve(int b, float x[], float x0[], float a, float c, int iter, int N);
@@ -10,3 +13,5 @@ public:
 	void Project(float vx[], float vy[], float p[], float div[], int iter, int N);	
 	void Advect(int b, float d[], float d0[], float vx[], float vy[], float dt, int N); 
 };
+
+#endif
