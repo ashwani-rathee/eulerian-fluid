@@ -1,49 +1,53 @@
 #ifndef CONTAINER_H
 #define CONTAINER_H
 
-#include<vector>
-#include<SFML/Graphics.hpp>
+#include <vector>
+#include <SFML/Graphics.hpp>
 
 #include "./physics.h"
 #include "./const.h"
 #include "./options.h"
 
-class Container {
+class Container
+{
 private:
-	Physics physics;
+    Physics physics;
+    
+    int size_x;
+    int size_y;
 
-	int size;
+    float dt;
+    float diff;
+    float visc;
 
-	float dt;
-	float diff;
-	float visc;
-	
-	float px[SIZE*SIZE];
-	float py[SIZE*SIZE];
+    float px[SIZE_X * SIZE_Y];
+    float py[SIZE_X * SIZE_Y];
 
-	float x[SIZE*SIZE];
-	float y[SIZE*SIZE];
+    float x[SIZE_X * SIZE_Y];
+    float y[SIZE_X * SIZE_Y];
 
-	float previousDensity[SIZE*SIZE];
-	float density[SIZE*SIZE];
-	
-	void InitArr(float arr[], int size);
-	float MapToRange(float value, float minIn, float maxIn, float minOut, float maxOut);
+    float previousDensity[SIZE_X * SIZE_Y];
+    float density[SIZE_X * SIZE_Y];
+
+    void InitArr(float arr[], int size);
+    float MapToRange(float value, float minIn, float maxIn, float minOut, float maxOut);
+
 public:
-	Container();
-	Container(float dt, float diff, float visc);
-	~Container();
+    Container();
+    Container(float dt, float diff, float visc);
+    ~Container();
 
-	void AddDensity(float x, float y, float amount);
-	void AddVelocity(float x, float y, float px, float py);
-	void Step();
-	void Render(sf::RenderWindow& win, Color color);
-	void FadeDensity(int size);
+    void AddDensity(float x, float y, float amount);
+    void AddVelocity(float x, float y, float px, float py);
+    void Step();
+    void Render(sf::RenderWindow &win, Color color);
+    void FadeDensity(int size);
 
-	int GetSize();
-	float* GetDensityPointer();
+    int GetSizeX();
+    int GetSizeY();
+    float *GetDensityPointer();
 
-	sf::Color Hsv(int hue, float sat, float val, float d);
+    sf::Color Hsv(int hue, float sat, float val, float d);
 };
 
 #endif

@@ -1,7 +1,8 @@
 #include "../header/options.h"
 
-Options::Options(Color color) {
-	this->color = color;
+Options::Options(Color color)
+{
+    this->color = color;
 }
 
 Options::~Options() {}

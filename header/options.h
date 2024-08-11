@@ -3,15 +3,17 @@
 
 #include "./color.h"
 
-class Options {
+class Options
+{
 private:
-	Color color;
+    Color color;
+
 public:
-	Options(Color color=Color::Default);
-	~Options();
-	
-	Color GetColor();
-	void SetColor(Color c);
+    Options(Color color = Color::Default);
+    ~Options();
+
+    Color GetColor();
+    void SetColor(Color c);
 };
 
 #endif

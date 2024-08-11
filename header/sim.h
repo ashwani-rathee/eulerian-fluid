@@ -1,20 +1,22 @@
 #ifndef SIM_H
 #define SIM_H
 
-#include<vector>
+#include <vector>
 #include "./container.h"
 
-class Sim {
+class Sim
+{
 private:
-	sf::RenderWindow win;
-	Container container;
-	Options options;
-	void Setup();
+    sf::RenderWindow win;
+    Container container;
+    Options options;
+    void Setup();
+
 public:
-	static const int numParticles;
-	Sim();
-	~Sim();
-	void Run();
+    static const int numParticles;
+    Sim();
+    ~Sim();
+    void Run();
 };
 
 #endif
