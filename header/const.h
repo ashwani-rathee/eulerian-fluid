@@ -1,9 +1,9 @@
 #ifndef CONST_H
 #define CONST_H
 
-const int SIZE_X = 100;
-const int SIZE_Y = 300;
-const int SCALE = 3;
+const int SIZE_X = 50;
+const int SIZE_Y = 50;
+const int SCALE = 20;
 
 const int LOOP_DELAY = 0;
 
@@ -15,6 +15,8 @@ enum EXAMPLE_TYPE
     ORIGINAL_FLUID = 3,
 };
 
-const EXAMPLE_TYPE exampleType = ORIGINAL_FLUID;
+const int N = 50;
+
+const EXAMPLE_TYPE exampleType = ONE_FLUID_BASIC_CORNER;
 
 #endif

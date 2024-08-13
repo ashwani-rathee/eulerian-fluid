@@ -1,6 +1,7 @@
 #include "../header/ix.h"
+#include "../header/const.h"
 
-int IX(int x, int y, int N)
+int IX(int x, int y, int z)
 {
     if (x < 0)
     {
@@ -20,7 +21,16 @@ int IX(int x, int y, int N)
         y = N - 1;
     }
 
-    return (y * N) + x;
+    if (z < 0)
+    {
+        z = 0;
+    }
+    if (z > N - 1)
+    {
+        z= N - 1;
+    }
+
+    return ((x) + (y) * N + (z) * N * N);
 }
 
 int IX(int x, int y, int x_size, int y_size)

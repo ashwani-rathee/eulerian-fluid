@@ -1,9 +1,9 @@
 #include <iostream>
-#include "../header/sim.h"
+#include "../header/fluid3dsim.h"
 
 int main()
 {
-    Sim s;
-    s.Run();
+    Fluid3DSim sim;
+    sim.Run();
     return 0;
 }

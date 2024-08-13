@@ -12,7 +12,7 @@ class Container
 {
 private:
     Physics physics;
-    
+
     int size_x;
     int size_y;
 
