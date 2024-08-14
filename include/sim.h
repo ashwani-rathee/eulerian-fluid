@@ -2,7 +2,7 @@
 #define SIM_H
 
 #include <vector>
-#include "./container.h"
+#include <container.h>
 
 class Sim
 {

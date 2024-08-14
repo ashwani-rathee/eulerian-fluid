@@ -1,4 +1,4 @@
-#include "../header/options.h"
+#include <options.h>
 
 Options::Options(Color color)
 {

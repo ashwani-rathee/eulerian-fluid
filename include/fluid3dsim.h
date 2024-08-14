@@ -2,11 +2,9 @@
 #define FLUIDSIM_H
 
 #include <math.h>
-#include "../header/container.h"
-
+#include <container.h>
 #include <vtkCamera.h>
 #include <vtkColorTransferFunction.h>
-// #include <vtkFixedPointVolumeRayCastMapper.h>
 #include <vtkNamedColors.h>
 #include <vtkNew.h>
 #include <vtkPiecewiseFunction.h>
@@ -38,9 +36,7 @@
 #include <vtkMultiBlockDataSet.h>
 #include <vtkMultiBlockVolumeMapper.h>
 #include <random>
-#include "../header/animationcallback.h"
-
-using namespace std;
+#include <animationcallback.h>
 
 class Fluid3DSim
 {

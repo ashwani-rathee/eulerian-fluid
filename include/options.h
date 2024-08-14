@@ -1,7 +1,7 @@
 #ifndef OPTIONS_H
 #define OPTIONS_H
 
-#include "./color.h"
+#include <color.h>
 
 class Options
 {

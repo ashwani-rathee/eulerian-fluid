@@ -15,3 +15,5 @@ vtk_module_autoinit(
   TARGETS main
   MODULES ${VTK_LIBRARIES}
 )
+
+target_include_directories(main PRIVATE ${MAIN_SOURCE_PATH}/include)

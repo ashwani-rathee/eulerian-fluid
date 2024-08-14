@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 # Set the project name
 project(Simula)
+set(MAIN_SOURCE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Set the C++ standard (if needed)
 set(CMAKE_CXX_STANDARD 11)

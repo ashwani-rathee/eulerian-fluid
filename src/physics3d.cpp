@@ -1,5 +1,5 @@
-#include "../header/physics3d.h"
-#include "../header/ix.h"
+#include <physics3d.h>
+#include <ix.h>
 #include <math.h>
 
 Physics3D::Physics3D()

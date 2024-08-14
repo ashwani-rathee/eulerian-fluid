@@ -1,6 +1,6 @@
 #include <cmath>
-#include "../header/physics.h"
-#include "../header/ix.h"
+#include <physics.h>
+#include <ix.h>
 
 Physics::Physics() {}
 

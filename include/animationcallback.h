@@ -12,11 +12,11 @@
 #include <vtkRenderWindow.h>
 #include <vtkRenderWindowInteractor.h>
 
-#include "../header/const.h"
-#include "../header/ix.h"
+#include <const.h>
+#include <ix.h>
 #include <vtkCommand.h>
-#include "container3d.h"
-#include "physics3d.h"
+#include <container3d.h>
+#include <physics3d.h>
 
 class AnimationCallback : public vtkCommand
 {

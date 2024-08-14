@@ -1,5 +1,5 @@
-#include "../header/container.h"
-#include "../header/ix.h"
+#include <container.h>
+#include <ix.h>
 #include <iostream>
 
 Container::Container() : physics(Physics()) {}

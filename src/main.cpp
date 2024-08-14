@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../header/fluid3dsim.h"
+#include <fluid3dsim.h>
 
 int main()
 {

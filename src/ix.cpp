@@ -1,5 +1,5 @@
-#include "../header/ix.h"
-#include "../header/const.h"
+#include <ix.h>
+#include <const.h>
 
 int IX(int x, int y, int z)
 {

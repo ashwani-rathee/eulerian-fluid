@@ -4,9 +4,9 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-#include "./physics.h"
-#include "./const.h"
-#include "./options.h"
+#include <physics.h>
+#include <const.h>
+#include <options.h>
 
 class Container
 {

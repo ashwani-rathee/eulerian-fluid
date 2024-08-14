@@ -1,5 +1,5 @@
-#include "../header/container3d.h"
-#include "../header/ix.h"
+#include <container3d.h>
+#include <ix.h>
 #include <stdlib.h>
 #include <iostream>
 

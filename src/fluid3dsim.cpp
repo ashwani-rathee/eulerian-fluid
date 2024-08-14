@@ -1,6 +1,6 @@
-#include "../header/fluid3dsim.h"
-#include "../header/container3d.h"
-#include "../header/physics3d.h"
+#include <fluid3dsim.h>
+#include <container3d.h>
+#include <physics3d.h>
 
 Fluid3DSim::Fluid3DSim()
 {

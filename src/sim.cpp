@@ -3,9 +3,9 @@
 #include <chrono>
 #include <thread>
 
-#include "../header/sim.h"
-#include "../header/ix.h"
-#include "../header/const.h"
+#include <sim.h>
+#include <ix.h>
+#include <const.h>
 
 const int Sim::numParticles = 10;
 

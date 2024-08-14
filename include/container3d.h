@@ -1,7 +1,7 @@
 #ifndef CONTAINER3D_H
 #define CONTAINER3D_H
 
-#include "./physics3d.h"
+#include <physics3d.h>
 
 class Container3D
 {

@@ -1,4 +1,4 @@
-#include "../header/animationcallback.h"
+#include <animationcallback.h>
 #include <random>
 
 AnimationCallback::AnimationCallback()
