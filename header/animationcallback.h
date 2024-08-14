@@ -31,8 +31,8 @@ private:
     int countAnimate = 0;
     // FluidCube* cube = FluidCubeCreate(50, 0.0, 0.0000001f, 0.2);
     int min2 = 1;
-    int max2 = N-1;
-    std::random_device rd;  // Obtain a random number from hardware
+    int max2 = N - 1;
+    std::random_device rd; // Obtain a random number from hardware
 public:
     static AnimationCallback *New()
     {
@@ -45,6 +45,5 @@ public:
     void SetTotalFrames(int frames);
     void SetTimerId(int id);
 };
-
 
 #endif //

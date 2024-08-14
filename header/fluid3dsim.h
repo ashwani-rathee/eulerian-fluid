@@ -40,16 +40,11 @@
 #include <random>
 #include "../header/animationcallback.h"
 
-
 using namespace std;
 
 class Fluid3DSim
 {
 private:
-    Container3D container = Container3D(50, 0.0, 0.0000001f, 0.2);
-    Options options;
-    void Setup();
-
     const int dimensions[3] = {50, 50, 50}; // Dimensions of the volume
     vtkNew<vtkImageData> imageData;
     vtkNew<vtkNamedColors> colors;
@@ -65,6 +60,7 @@ private:
     vtkNew<vtkActor> outlineActor;
     vtkNew<vtkVolume> volume;
     vtkNew<AnimationCallback> callback;
+    vtkFloatArray *scalars;
 
 public:
     static const int numParticles;

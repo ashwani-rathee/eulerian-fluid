@@ -4,10 +4,10 @@
 
 Fluid3DSim::Fluid3DSim()
 {
-    std::srand(std::time(nullptr));         // Initialize random seed
+    std::srand(std::time(nullptr)); // Initialize random seed
     this->imageData->SetDimensions(this->dimensions);
     this->imageData->AllocateScalars(VTK_FLOAT, 1);
-    vtkFloatArray *scalars = vtkFloatArray::SafeDownCast(this->imageData->GetPointData()->GetScalars());
+    scalars = vtkFloatArray::SafeDownCast(this->imageData->GetPointData()->GetScalars());
     for (int z = 0; z < dimensions[2]; ++z)
     {
         for (int y = 0; y < dimensions[1]; ++y)

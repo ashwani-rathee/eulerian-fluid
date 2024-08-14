@@ -27,10 +27,10 @@ int IX(int x, int y, int z)
     }
     if (z > N - 1)
     {
-        z= N - 1;
+        z = N - 1;
     }
 
-    return ((x) + (y) * N + (z) * N * N);
+    return ((x) + (y)*N + (z)*N * N);
 }
 
 int IX(int x, int y, int x_size, int y_size)

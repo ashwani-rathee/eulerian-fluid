@@ -9,3 +9,9 @@ target_link_libraries(main sfml-graphics sfml-window sfml-system)
 
 # Link VTK libraries
 target_link_libraries(main ${VTK_LIBRARIES})
+
+# vtk_module_autoinit is needed
+vtk_module_autoinit(
+  TARGETS main
+  MODULES ${VTK_LIBRARIES}
+)

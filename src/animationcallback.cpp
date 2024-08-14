@@ -1,4 +1,5 @@
 #include "../header/animationcallback.h"
+#include <random>
 
 AnimationCallback::~AnimationCallback()
 {
@@ -36,7 +37,7 @@ void AnimationCallback::Execute(vtkObject *caller, unsigned long eventId, void *
             {
                 for (int x = 0; x < this->dimensions[0]; ++x)
                 {
-                    // this->imageData->SetScalarComponentFromFloat(x, y, z, 0, this->cube->density[IX(x, y, z)] * 1000000000);
+                    this->imageData->SetScalarComponentFromFloat(x, y, z, 0, rand());
                 }
             }
         }

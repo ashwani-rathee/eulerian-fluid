@@ -6,7 +6,7 @@
 class Container3D
 {
 private:
-    Physics3D* physics;
+    Physics3D *physics;
     int size;
     float dt;
     float diff;
@@ -21,6 +21,7 @@ private:
     float *Vx0;
     float *Vy0;
     float *Vz0;
+
 public:
     float *density;
     Container3D(int size, float dt, float diff, float visc);
@@ -28,7 +29,6 @@ public:
     void FluidCubeStep();
     void FluidCubeAddDensity(int x, int y, int z, float amount);
     void FluidCubeAddVelocity(int x, int y, int z, float amountX, float amountY, float amountZ);
-
 };
 
 #endif //
