@@ -22,8 +22,7 @@ class AnimationCallback : public vtkCommand
 {
 private:
     vtkImageData *imageData;
-    Container3D container = Container3D(50, 0.0, 0.0000001f, 0.2);
-    Physics3D physics;
+    Container3D *container;
     int dimensions[3];
     int totalFrames = 0;
     int currentFrame = 0;
@@ -38,6 +37,7 @@ public:
     {
         return new AnimationCallback;
     }
+    AnimationCallback();
     ~AnimationCallback();
     void Execute(vtkObject *caller, unsigned long eventId, void *callData) override;
     void SetImageData(vtkImageData *data);

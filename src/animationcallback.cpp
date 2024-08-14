@@ -1,6 +1,11 @@
 #include "../header/animationcallback.h"
 #include <random>
 
+AnimationCallback::AnimationCallback()
+{
+    this->container = new Container3D(50, 0.1, 0.0000001f, 0.0);
+}
+
 AnimationCallback::~AnimationCallback()
 {
 }
@@ -13,22 +18,19 @@ void AnimationCallback::Execute(vtkObject *caller, unsigned long eventId, void *
     if (vtkCommand::TimerEvent == eventId)
     {
         // std::cout << "Animation callback" << std::endl;
-        // FluidCubeStep(this->cube);
-        // if (this->cube->density[IX(25, 49, 25)] <= 0)
-        // {
-        //     //  FluidCubeAddDensity(this->cube, 24,1,22,20);
-        //     FluidCubeAddDensity(this->cube, 25, 1, 25, 30);
-        //     // FluidCubeAddDensity(this->cube, 25,1,22,10);
-        //     // FluidCubeAddDensity(this->cube, 25,1,22,20);
-        // }
-        // // if(this->cube->density[IX(25,49,25)] <= 0) FluidCubeAddDensity(this->cube, 25,25,1,50);
-        // //             if(this->cube->density[IX(25,49,25)] <= 0) FluidCubeAddVelocity(this->cube, 25,25,2,0,0,1);
-        // if (this->cube->density[IX(25, 49, 25)] <= 0)
-        // {
-        //     FluidCubeAddVelocity(this->cube, 25, 2, 25, 0.5, 0.9, 0.2);
-        // }
-        // if (countAnimate % 500 == 0)
-        //     FluidCubeAddVelocity(this->cube, 25, distr(gen), 25, distr(gen), distr(gen), distr(gen));
+        this->container->FluidCubeStep();
+        if (this->container->density[IX(25, 49, 25)] <= 0)
+        {
+            this->container->FluidCubeAddDensity(25, 1, 25, 30);
+            this->container->FluidCubeAddDensity(25, 1, 22, 10);
+        }
+        if (this->container->density[IX(25, 49, 25)] <= 0)
+        {
+            this->container->FluidCubeAddVelocity(25, 2, 25, 0.5, 0.9, 0.2);
+            this->container->FluidCubeAddVelocity(25, 2, 25, 0.5, 0.9, 0.2);
+        }
+        if (countAnimate % 500 == 0)
+            this->container->FluidCubeAddVelocity(25, distr(gen), 25, distr(gen), distr(gen), distr(gen));
 
         // Generate new random values for the volume
         for (int z = 0; z < this->dimensions[2]; ++z)
@@ -37,7 +39,7 @@ void AnimationCallback::Execute(vtkObject *caller, unsigned long eventId, void *
             {
                 for (int x = 0; x < this->dimensions[0]; ++x)
                 {
-                    this->imageData->SetScalarComponentFromFloat(x, y, z, 0, rand());
+                    this->imageData->SetScalarComponentFromFloat(x, y, z, 0, this->container->density[IX(x, y, z)] * 1000000000);
                 }
             }
         }

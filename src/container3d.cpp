@@ -1,6 +1,7 @@
 #include "../header/container3d.h"
 #include "../header/ix.h"
 #include <stdlib.h>
+#include <iostream>
 
 Container3D::Container3D(int size, float dt, float diff, float visc)
 {
@@ -20,6 +21,8 @@ Container3D::Container3D(int size, float dt, float diff, float visc)
     this->Vx0 = static_cast<float *>(calloc(N * N * N, sizeof(float)));
     this->Vy0 = static_cast<float *>(calloc(N * N * N, sizeof(float)));
     this->Vz0 = static_cast<float *>(calloc(N * N * N, sizeof(float)));
+
+    this->physics = new Physics3D();
 }
 
 Container3D::~Container3D()
@@ -38,33 +41,20 @@ Container3D::~Container3D()
 
 void Container3D::FluidCubeStep()
 {
-    int N = this->size;
-    float visc = this->visc;
-    float diff = this->diff;
-    float dt = this->dt;
-    float *Vx = this->Vx;
-    float *Vy = this->Vy;
-    float *Vz = this->Vz;
-    float *Vx0 = this->Vx0;
-    float *Vy0 = this->Vy0;
-    float *Vz0 = this->Vz0;
-    float *s = this->s;
-    float *density = this->density;
+    this->physics->Diffuse(1, this->Vx0, this->Vx, this->visc, this->dt, 4, this->size);
+    this->physics->Diffuse(2, this->Vy0, this->Vy, this->visc, this->dt, 4, this->size);
+    this->physics->Diffuse(3, this->Vz0, this->Vz, this->visc, this->dt, 4, this->size);
 
-    this->physics->Diffuse(1, Vx0, Vx, visc, dt, 4, N);
-    this->physics->Diffuse(2, Vy0, Vy, visc, dt, 4, N);
-    this->physics->Diffuse(3, Vz0, Vz, visc, dt, 4, N);
+    this->physics->Project(this->Vx0, this->Vy0, this->Vz0, this->Vx, this->Vy, 4, this->size);
 
-    this->physics->Project(Vx0, Vy0, Vz0, Vx, Vy, 4, N);
+    this->physics->Advect(1, this->Vx, this->Vx0, this->Vx0, this->Vy0, this->Vz0, this->dt, this->size);
+    this->physics->Advect(2, this->Vy, this->Vy0, this->Vx0, this->Vy0, this->Vz0, this->dt, this->size);
+    this->physics->Advect(3, this->Vz, this->Vz0, this->Vx0, this->Vy0, this->Vz0, this->dt, this->size);
 
-    this->physics->Advect(1, Vx, Vx0, Vx0, Vy0, Vz0, dt, N);
-    this->physics->Advect(2, Vy, Vy0, Vx0, Vy0, Vz0, dt, N);
-    this->physics->Advect(3, Vz, Vz0, Vx0, Vy0, Vz0, dt, N);
+    this->physics->Project(this->Vx, this->Vy, this->Vz, this->Vx0, this->Vy0, 4, this->size);
 
-    this->physics->Project(Vx, Vy, Vz, Vx0, Vy0, 4, N);
-
-    this->physics->Diffuse(0, s, density, diff, dt, 4, N);
-    this->physics->Advect(0, density, s, Vx, Vy, Vz, dt, N);
+    this->physics->Diffuse(0, this->s, this->density, this->diff, this->dt, 4, this->size);
+    this->physics->Advect(0, this->density, this->s, this->Vx, this->Vy, this->Vz, this->dt, this->size);
 }
 
 void Container3D::FluidCubeAddDensity(int x, int y, int z, float amount)
