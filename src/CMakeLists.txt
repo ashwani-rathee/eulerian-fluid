@@ -8,7 +8,8 @@ add_executable(main MACOSX_BUNDLE ${SOURCES})
 target_link_libraries(main sfml-graphics sfml-window sfml-system)
 
 # Link VTK libraries
-target_link_libraries(main ${VTK_LIBRARIES})
+target_link_libraries(main ${VTK_LIBRARIES} Eigen3::Eigen)
+target_link_libraries(main OpenMP::OpenMP_CXX)
 
 # vtk_module_autoinit is needed
 vtk_module_autoinit(

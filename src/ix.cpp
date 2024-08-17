@@ -55,3 +55,10 @@ int IX(int x, int y, int x_size, int y_size)
 
     return (y * x_size) + x;
 }
+
+/* other definitions */
+int POS(int i, int j, int k)
+{
+    assert((i >= 0 || i < Nx) || (j >= 0 || j < Ny) || (k >= 0 || k < Nz));
+    return i + Nx * j + Nx * Ny * k;
+}
